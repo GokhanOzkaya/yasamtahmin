@@ -36,15 +36,19 @@ class WidegetColumn extends StatelessWidget {
 class ContainerWidget extends StatelessWidget {
   final Color renk;
   final Widget? child;
-  ContainerWidget({this.renk = Colors.white, this.child});
+  final Function()? onPress;
+  ContainerWidget({this.renk = Colors.white, this.child,this.onPress});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: child,
-      margin: EdgeInsets.all(12.3),
-      decoration:
-      BoxDecoration(borderRadius: BorderRadius.circular(16.2), color: renk),
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        child: child,
+        margin: EdgeInsets.all(12.3),
+        decoration:
+        BoxDecoration(borderRadius: BorderRadius.circular(16.2), color: renk),
+      ),
     );
   }
 }
