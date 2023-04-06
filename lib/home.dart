@@ -1,7 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:yasamak/constants.dart';
 import 'package:yasamak/widgets.dart';
 
 class AnaSayfa extends StatefulWidget {
@@ -14,8 +13,9 @@ class AnaSayfa extends StatefulWidget {
 class _AnaSayfaState extends State<AnaSayfa> {
   bool? erkekMi;
   double icilenSigara = 30;
-  double sporGunu =0;
-
+  double sporGunu = 0;
+  int boy = 180;
+  int kilo= 80;
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +24,86 @@ class _AnaSayfaState extends State<AnaSayfa> {
         title: Text('ibi'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ContainerWidget(renk: Colors.black),
+                  child: ContainerWidget(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RotatedBox(
+                            quarterTurns: -1,
+                            child: Text(
+                              'BOY',
+                              style: kTekstStili,
+                            )),
+                        RotatedBox(
+                            quarterTurns: -1,
+                            child: Text(
+                              '$boy',
+                              style: kSayiStili,
+                            )),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            OutlinedButton(
+                              onPressed: () {
+                                setState(() {
+                                boy++;
+                                });
+                              },
+                              child: Icon(FontAwesomeIcons.add),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Icon(FontAwesomeIcons.minus),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ContainerWidget(),
+                  child: ContainerWidget(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RotatedBox(
+                            quarterTurns: -1,
+                            child: Text(
+                              'BOY',
+                              style: kTekstStili,
+                            )),
+                        RotatedBox(
+                            quarterTurns: -1,
+                            child: Text(
+                              '$boy',
+                              style: kSayiStili,
+                            )),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            OutlinedButton(
+                              onPressed: () {
+                                setState(() {
+                                  boy++;
+                                });
+                              },
+                              child: Icon(FontAwesomeIcons.add),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Icon(FontAwesomeIcons.minus),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -41,25 +112,31 @@ class _AnaSayfaState extends State<AnaSayfa> {
             child: Row(
               children: [
                 Expanded(
-                  child: ContainerWidget(child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Haftada Kaç Gün Spor Yapıyorsunuz ? '),
-                      Slider(
-                        min: 0,
-                        max: 7,
-                          value: sporGunu,
-                          onChanged:(double newValue){
-                          setState(() {
-                            sporGunu=newValue;
-                          });
-                        }
-                      ),
-                      Text(
-                          '${sporGunu.round()}'
-                      ),
-                    ],
-                  ),),
+                  child: ContainerWidget(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Haftada kaç gün spor yapıyorsunuz ? ',
+                          style: kTekstStili,
+                        ),
+                        Slider(
+                            min: 0,
+                            max: 7,
+                            value: sporGunu,
+                            divisions: 7,
+                            onChanged: (double newValue) {
+                              setState(() {
+                                sporGunu = newValue;
+                              });
+                            }),
+                        Text(
+                          '${sporGunu.round()}',
+                          style: kSayiStili,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -74,20 +151,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
                       children: [
                         Text(
                           'Günde kaç sigara içiyorsunuz',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      SizedBox(height: 15 ,),
-                        Text(
-                          '${icilenSigara.round()}',
-                          style: TextStyle(
-                            color: Colors.blue[400],
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: kTekstStili,
                         ),
                         Slider(
                             max: 60,
@@ -98,6 +162,10 @@ class _AnaSayfaState extends State<AnaSayfa> {
                                 icilenSigara = newValue;
                               });
                             }),
+                        Text(
+                          '${icilenSigara.round()}',
+                          style: kSayiStili,
+                        ),
                       ],
                     ),
                   ),

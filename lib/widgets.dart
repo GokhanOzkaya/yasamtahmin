@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:yasamak/constants.dart';
 
 class WidegetColumn extends StatelessWidget {
   final String? text;
@@ -22,11 +23,7 @@ class WidegetColumn extends StatelessWidget {
         SizedBox(height: 10,),
         Text(
           '$text',
-          style: TextStyle(
-            color: Colors.black54,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style:kTekstStili,
         ),
       ],
     );
