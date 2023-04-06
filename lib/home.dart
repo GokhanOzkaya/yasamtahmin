@@ -31,86 +31,12 @@ class _AnaSayfaState extends State<AnaSayfa> {
               children: [
                 Expanded(
                   child: ContainerWidget(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RotatedBox(
-                            quarterTurns: -1,
-                            child: Text(
-                              'BOY',
-                              style: kTekstStili,
-                            )),
-                        RotatedBox(
-                            quarterTurns: -1,
-                            child: Text(
-                              '$boy',
-                              style: kSayiStili,
-                            )),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            OutlinedButton(
-                              onPressed: () {
-                                setState(() {
-                                boy++;
-                                });
-                              },
-                              child: Icon(FontAwesomeIcons.add),
-                            ),
-                            OutlinedButton(
-                              onPressed: () {
-                                setState(() {
-                                  boy--;
-                                });
-                              },
-                              child: Icon(FontAwesomeIcons.minus),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    child: buildRowOutLineButtom('BOY',boy),
                   ),
                 ),
                 Expanded(
                   child: ContainerWidget(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RotatedBox(
-                            quarterTurns: -1,
-                            child: Text(
-                              'KİLO',
-                              style: kTekstStili,
-                            )),
-                        RotatedBox(
-                            quarterTurns: -1,
-                            child: Text(
-                              '$kilo',
-                              style: kSayiStili,
-                            )),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            OutlinedButton(
-                              onPressed: () {
-                                setState(() {
-                                  kilo++;
-                                });
-                              },
-                              child: Icon(FontAwesomeIcons.add),
-                            ),
-                            OutlinedButton(
-                              onPressed: () {
-                                setState(() {
-                                  kilo--;
-                                });
-                              },
-                              child: Icon(FontAwesomeIcons.minus),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    child: buildRowOutLineButtom('KİLO',kilo),
                   ),
                 ),
               ],
@@ -216,5 +142,46 @@ class _AnaSayfaState extends State<AnaSayfa> {
         ],
       ),
     );
+  }
+
+  Row buildRowOutLineButtom(String label,int boy) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RotatedBox(
+              quarterTurns: -1,
+              child: Text(
+                label,
+                style: kTekstStili,
+              )),
+          RotatedBox(
+              quarterTurns: -1,
+              child: Text(
+                '$boy',
+                style: kSayiStili,
+              )),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OutlinedButton(
+                onPressed: () {
+                  setState(() {
+                  boy++;
+                  });
+                },
+                child: Icon(FontAwesomeIcons.add),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  setState(() {
+                    boy--;
+                  });
+                },
+                child: Icon(FontAwesomeIcons.minus),
+              ),
+            ],
+          ),
+        ],
+      );
   }
 }
