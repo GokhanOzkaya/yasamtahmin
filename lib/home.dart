@@ -21,7 +21,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ibi'),
+        title: Text('Yasam Süresi Tahmin Edici'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,7 +58,11 @@ class _AnaSayfaState extends State<AnaSayfa> {
                               child: Icon(FontAwesomeIcons.add),
                             ),
                             OutlinedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  boy--;
+                                });
+                              },
                               child: Icon(FontAwesomeIcons.minus),
                             ),
                           ],
@@ -75,13 +79,13 @@ class _AnaSayfaState extends State<AnaSayfa> {
                         RotatedBox(
                             quarterTurns: -1,
                             child: Text(
-                              'BOY',
+                              'KİLO',
                               style: kTekstStili,
                             )),
                         RotatedBox(
                             quarterTurns: -1,
                             child: Text(
-                              '$boy',
+                              '$kilo',
                               style: kSayiStili,
                             )),
                         Column(
@@ -90,13 +94,17 @@ class _AnaSayfaState extends State<AnaSayfa> {
                             OutlinedButton(
                               onPressed: () {
                                 setState(() {
-                                  boy++;
+                                  kilo++;
                                 });
                               },
                               child: Icon(FontAwesomeIcons.add),
                             ),
                             OutlinedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  kilo--;
+                                });
+                              },
                               child: Icon(FontAwesomeIcons.minus),
                             ),
                           ],
