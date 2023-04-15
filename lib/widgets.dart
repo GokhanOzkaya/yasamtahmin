@@ -7,8 +7,10 @@ class WidegetColumn extends StatelessWidget {
   final IconData? icon;
   final Widget? children;
 
-  WidegetColumn({this.text='Cinsiyet',this.icon=FontAwesomeIcons.venus,this.children});
-
+  WidegetColumn(
+      {this.text = 'Cinsiyet',
+      this.icon = FontAwesomeIcons.venus,
+      this.children});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,12 @@ class WidegetColumn extends StatelessWidget {
           size: 56,
           color: Colors.black54,
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Text(
           '$text',
-          style:kTekstStili,
+          style: kTekstStili,
         ),
       ],
     );
@@ -32,20 +36,22 @@ class WidegetColumn extends StatelessWidget {
 
 class ContainerWidget extends StatelessWidget {
   final Color renk;
-  final Widget? child;
+  final Widget children;
   final Function()? onPress;
-  ContainerWidget({this.renk = Colors.white, this.child,this.onPress});
+  ContainerWidget({this.renk = Colors.white, required this.children, this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        child: child,
+        child: children,
         margin: EdgeInsets.all(12.3),
-        decoration:
-        BoxDecoration(borderRadius: BorderRadius.circular(16.2), color: renk),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.2), color: renk),
       ),
     );
   }
 }
+
+
