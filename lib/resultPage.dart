@@ -111,7 +111,7 @@ class resultPage extends StatelessWidget {
             )
           ),
         ),
-        Expanded(flex: 2,child: ContainerWidget(children: Center(child: Text('${hesap(userData: userData).hesapla().round().toString()}',style: kTekstStili.copyWith(color: Colors.white),)),renk: Colors.green,onPress: (){}),),
+        Expanded(flex: 2,child: ContainerWidget(children: Center(child: Text('Ortalma Yaşam Süreniz : ${hesap(userData: userData).hesapla().round().toString()} Yıl',style: kTekstStili.copyWith(color: Colors.white),)),renk: Colors.green,onPress: (){}),),
         SizedBox(height: 30,),
         Expanded(
             flex: 1,

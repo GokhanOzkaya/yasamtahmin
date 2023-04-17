@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:yasamak/constants.dart';
 import 'package:yasamak/resultPage.dart';
 import 'package:yasamak/user_data.dart';
 import 'package:yasamak/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+
 
 class AnaSayfa extends StatefulWidget {
   static const String routeName = '/';
@@ -23,16 +27,14 @@ class _AnaSayfaState extends State<AnaSayfa> {
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Yasam Süresi Tahmin Edici'),
+        title: Text('Yasam Süresi Tahmin Edici',style:GoogleFonts.lato()),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
+          Expanded(flex: 5,
             child: Row(
               children: [
                 Expanded(
@@ -48,7 +50,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
               ],
             ),
           ),
-          Expanded(
+          Expanded(flex: 5,
             child: Row(
               children: [
                 Expanded(
@@ -81,7 +83,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
               ],
             ),
           ),
-          Expanded(
+          Expanded(flex: 5,
             child: Row(
               children: [
                 Expanded(
@@ -113,7 +115,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
               ],
             ),
           ),
-          Expanded(
+          Expanded(flex: 5,
             child: Row(
               children: [
                 Expanded(
@@ -145,17 +147,19 @@ class _AnaSayfaState extends State<AnaSayfa> {
               ],
             ),
           ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resultPage(userData: UserData(
-                  erkekMi: erkekMi,
-                  icilenSigara: icilenSigara,
-                  sporGunu: sporGunu,
-                  boy: boy,
-                  kilo: kilo,
-                ))));
-              },
-              child:Text('Yeşil Sayfa'),
+          Expanded(
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => resultPage(userData: UserData(
+                    erkekMi: erkekMi,
+                    icilenSigara: icilenSigara,
+                    sporGunu: sporGunu,
+                    boy: boy,
+                    kilo: kilo,
+                  ))));
+                },
+                child:Text('Tahmini Gör',style: kTekstStili.copyWith(color: Colors.white),),
+            ),
           )
         ],
       ),

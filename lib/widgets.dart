@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yasamak/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class WidegetColumn extends StatelessWidget {
   final String? text;
@@ -48,7 +50,17 @@ class ContainerWidget extends StatelessWidget {
         child: children,
         margin: EdgeInsets.all(12.3),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.2), color: renk),
+          borderRadius: BorderRadius.circular(16.2),
+          color: renk,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
       ),
     );
   }
